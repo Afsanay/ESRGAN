@@ -33,16 +33,15 @@ options = os.listdir('LR')
 selected_image = st.selectbox("Choose an image", options=options)
 
 image_path = os.path.join("LR", selected_image)
-image = Image.open(image_path)
-img = np.array(image)
-img = img[:, :, :3]
-image = Image.fromarray(img)
-with torch.no_grad():
-    upscaled_img = gen(config.test_transform(image=np.asarray(image))["image"].unsqueeze(0).to(config.DEVICE))
+if image_path is not None:
+    image = Image.open(image_path)
+    img = np.array(image)
+    img = img[:, :, :3]
+    image = Image.fromarray(img)
+    with torch.no_grad():
+        upscaled_img = gen(config.test_transform(image=np.asarray(image))["image"].unsqueeze(0).to(config.DEVICE))
 
-col1, col2 = st.columns(2)
-
-if options:
+    col1, col2 = st.columns(2)
     with col1:
         resized_image = image.resize((512, 512))
         st.info("Low Resolution Image")
