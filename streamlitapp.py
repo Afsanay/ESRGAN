@@ -10,8 +10,10 @@ import numpy as np
 st.set_page_config(layout='wide')
 
 with st.sidebar:
-    st.image('https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png')
-    st.title("ESRGAN")
+    st.image(
+        'https://imageio.forbes.com/specials-images/imageserve/5f51c38ba72e09805e578c53/3-Predictions-For-The-Role-Of'
+        '-Artificial-Intelligence-In-Art-And-Design/960x0.jpg?format=jpg&width=960')
+    st.title("Generative Adversarial Networks")
     st.info("Change your perspective with Enhanced Super Resolution GAN")
 
 st.title('Change low resolution images into high resolution')
